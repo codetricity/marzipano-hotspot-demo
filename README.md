@@ -2,6 +2,8 @@
 
 ![scene 1](readme_assets/scene1.png)
 
+[live site](https://codetricity.github.io/marzipano-hotspot-demo/)
+
 Set hotspots inside of each 360 image sphere. Navigate
 to another sphere.
 
