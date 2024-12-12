@@ -1,11 +1,13 @@
 // Create viewer.
 var viewer = new Marzipano.Viewer(document.getElementById('pano'));
+
+
 // Create geometry.
 var geometry = new Marzipano.EquirectGeometry([{ width: 8000 }]);
 
 // Create view.
 var limiter = Marzipano.RectilinearView.limit.traditional(1024, 100*Math.PI/180);
-var view = new Marzipano.RectilinearView({ yaw: Math.PI }, limiter);
+var view1 = new Marzipano.RectilinearView({ yaw: 0, pitch: .1});
 
 // Create first scene.
 var scene1 = viewer.createScene({
@@ -13,11 +15,13 @@ var scene1 = viewer.createScene({
     "https://live.staticflickr.com/65535/48083394567_c918e406ea_6k_d.jpg"
   ),
   geometry: geometry,
-  view: view,
+  view: view1,
 });
 
 // Display scene.
 scene1.switchTo();
+
+
 
 // Create a hotspot element
 var hotspotElement = document.createElement('div');
@@ -41,10 +45,13 @@ hotspotElement.addEventListener('click', function() {
   newScene.switchTo();
 });
 
+var view2 = new Marzipano.RectilinearView({ yaw: -1.45, pitch: .1 });
+
+
 // Load the new panorama
 var newScene = viewer.createScene({
   geometry: geometry,
-  view: view,
+  view: view2,
   source: Marzipano.ImageUrlSource.fromString("https://live.staticflickr.com/65535/48082720616_7802a218e1_b_d.jpg"),
   // ... configuration for the new panorama
 });
